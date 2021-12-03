@@ -1,12 +1,8 @@
 package ekrem.ozan.satellites.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import ekrem.ozan.satellites.R
+import ekrem.ozan.satellites.base.view.BaseActivity
 
-class HomeActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-    }
+class HomeActivity : BaseActivity(R.layout.activity_home) {
+
 }
