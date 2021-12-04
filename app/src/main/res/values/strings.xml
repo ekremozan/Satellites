@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Satellites</string>
+
+    <!--Image View Description-->
+    <string name="satellite_status_icon">Satellite status icon</string>
 </resources>
