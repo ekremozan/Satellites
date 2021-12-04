@@ -1,6 +1,8 @@
 package ekrem.ozan.satellites.ui.detail
 
-import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import ekrem.ozan.satellites.base.view.BaseViewModel
+import javax.inject.Inject
 
-class DetailViewModel : BaseViewModel()
+@HiltViewModel
+class DetailViewModel @Inject constructor() : BaseViewModel()

@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data/>
+    <data>
+        <variable
+            name="uiState"
+            type="ekrem.ozan.satellites.ui.list.SatelliteUIState" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +17,7 @@
         tools:context=".ui.list.ListFragment">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
+            android:id="@+id/search_view"
             style="@style/SearchViewStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -22,13 +26,21 @@
             app:defaultQueryHint="Search satellite" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/satellite_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:padding="@dimen/padding_8dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/item_satellite" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="#df6a2e"
+            app:isVisible="@{uiState.showProgress()}"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 </layout>

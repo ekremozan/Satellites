@@ -10,5 +10,5 @@
 
     <color name="background">#eeeeee</color>
     <color name="satellite_active_status">#76ff03</color>
-    <color name="satellite_not_active_status">#ff3d00</color>
+    <color name="satellite_passive_status">#ff3d00</color>
 </resources>

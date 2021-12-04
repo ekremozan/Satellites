@@ -3,6 +3,7 @@
     package="ekrem.ozan.satellites">
 
     <application
+        android:name="ekrem.ozan.satellites.App"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"

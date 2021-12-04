@@ -9,7 +9,7 @@ abstract class BaseUseCase<Params, Response>(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
-    operator fun invoke(parameters: Params): Flow<Response> {
+    operator fun <T> invoke(parameters: Params): Flow<Response> {
         return execute(parameters)
             .flowOn(dispatcher)
     }

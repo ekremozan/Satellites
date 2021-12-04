@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes private val layoutRes: Int) : Fragment(layoutRes) {
     lateinit var binding: DB
+    abstract val viewModel: BaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,4 +22,5 @@ abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes private val layoutR
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
+
 }

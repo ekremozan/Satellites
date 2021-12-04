@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/satellite_status_icon"
-        android:layout_width="@dimen/satellite_circle_width"
-        android:layout_height="@dimen/satellite_circle_height"
-        android:layout_margin="@dimen/padding_8dp"
-        android:background="@drawable/satellite_status_circle"
-        android:contentDescription="@string/satellite_status_icon"
-        tools:backgroundTint="@color/satellite_active_status" />
+    <data>
+        <variable
+            name="viewState"
+            type="ekrem.ozan.satellites.ui.list.SatelliteViewState" />
+    </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/satellite_name"
+        <ImageView
+            android:id="@+id/satellite_status_icon"
+            android:layout_width="@dimen/satellite_circle_width"
+            android:layout_height="@dimen/satellite_circle_height"
+            android:layout_margin="@dimen/padding_8dp"
+            android:background="@{viewState.getStatusIcon(context)}"
+            android:contentDescription="@string/satellite_status_icon"
+            tools:background="@drawable/satellite_active_status_circle" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:textColor="@color/black"
-            tools:text="StarShip-1" />
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/satellite_status_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/black"
-            tools:text="Active" />
+            <TextView
+                android:id="@+id/satellite_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{viewState.name}"
+                android:textColor="@color/black"
+                tools:text="StarShip-1" />
+
+            <TextView
+                android:id="@+id/satellite_status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewState.statusText}"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/black"
+                tools:text="Active" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

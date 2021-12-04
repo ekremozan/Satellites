@@ -9,6 +9,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="ekrem.ozan.satellites.ui.list.ListFragment"
+
         android:label="ListFragment"
         tools:layout="@layout/fragment_list">
         <action
