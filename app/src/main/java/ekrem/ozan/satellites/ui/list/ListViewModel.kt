@@ -3,12 +3,10 @@ package ekrem.ozan.satellites.ui.list
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ekrem.ozan.satellites.base.view.BaseViewModel
 import ekrem.ozan.satellites.domain.model.SatelliteData
 import ekrem.ozan.satellites.domain.usecase.SatelliteUseCase
-import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
