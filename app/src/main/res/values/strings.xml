@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Satellites</string>
 
+    <string name="height_mass">Height/Mass:</string>
+
     <!--Image View Description-->
     <string name="satellite_status_icon">Satellite status icon</string>
+    <string name="cost">Cost:</string>
+    <string name="last_position">Last Position:</string>
 </resources>

@@ -20,7 +20,7 @@ class DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             SatelliteDatabase::class.java,
-            "RssReader"
+            "SatelliteDatabase"
         ).build()
     }
 }

@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "satellite_positions")
 data class SatellitePositionItem (
+    val satelliteId: Int,
+    val posX: Double,
+    val posY: Double,
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
-    var satelliteId: Int,
-    var posX: Double,
-    var posY: Double
+    val id: Int = 0
 )

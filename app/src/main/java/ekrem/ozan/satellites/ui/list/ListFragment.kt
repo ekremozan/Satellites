@@ -49,7 +49,6 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list), 
         searchViewClick()
     }
 
-
     private fun observeViewModelFields() {
         observe(viewModel.satelliteListLiveData) { satelliteAdapter.submitList(it) }
         observe(viewModel.uiStateLiveData) { binding.uiState = it }
@@ -66,9 +65,8 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list), 
         }
     }
 
-
     override fun onItemClick(satellite: SatelliteData) {
-        findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(satellite.id))
+        findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(satellite.id, satellite.name))
     }
 
     private fun addItemDecorator() {

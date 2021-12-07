@@ -4,12 +4,12 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import ekrem.ozan.satellites.data.local.dao.SatelliteDao
 import ekrem.ozan.satellites.data.local.dao.SatellitePositionDao
-import ekrem.ozan.satellites.data.local.models.SatelliteItem
+import ekrem.ozan.satellites.data.local.models.SatelliteDetailItem
 import ekrem.ozan.satellites.data.local.models.SatellitePositionItem
 
 @Database(
     entities = [
-        SatelliteItem::class,
+        SatelliteDetailItem::class,
         SatellitePositionItem::class],
     version = 1
 )

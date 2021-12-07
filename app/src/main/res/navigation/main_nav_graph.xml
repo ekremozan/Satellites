@@ -26,5 +26,9 @@
         <argument
             android:name="satelliteId"
             app:argType="integer" />
+
+        <argument
+            android:name="satelliteName"
+            app:argType="string" />
     </fragment>
 </navigation>

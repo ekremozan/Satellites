@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ekrem.ozan.satellites.base.view.BaseViewModel
 import ekrem.ozan.satellites.domain.model.SatelliteData
-import ekrem.ozan.satellites.domain.usecase.SatelliteUseCase
+import ekrem.ozan.satellites.domain.usecase.GetSatelliteUseCase
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val satelliteUseCase: SatelliteUseCase
+    private val getSatelliteUseCase: GetSatelliteUseCase
 ) : BaseViewModel() {
 
     private val _satelliteListLiveData by lazy { MutableLiveData<ArrayList<SatelliteData>>() }
@@ -26,7 +26,7 @@ class ListViewModel @Inject constructor(
     val satelliteList by lazy { ArrayList<SatelliteData>() }
 
     fun getSatellites(context: Context) {
-        satelliteUseCase.invoke<SatelliteData>(context)
+        getSatelliteUseCase.invoke<SatelliteData>(context)
             .onStart {
                 _uiStateLiveData.value = SatelliteUIState(true)
             }.onEach { list ->
