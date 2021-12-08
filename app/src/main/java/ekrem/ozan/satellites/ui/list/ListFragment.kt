@@ -57,7 +57,7 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list), 
     private fun searchViewClick() {
         binding.searchView.textChangeListener { filter ->
             if (filter != null && filter.isNotEmpty()) {
-                viewModel.satelliteList.filter { satellite -> satellite.name.lowercase().startsWith(filter) }.apply {
+                viewModel.satelliteList.filter { satellite -> satellite.name.lowercase().startsWith(filter.lowercase()) }.apply {
                     satelliteAdapter.submitList(this)
                 }
             } else if (filter != null && filter.isEmpty())
