@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import ekrem.ozan.satellites.R
+import ekrem.ozan.satellites.base.extensions.addVerticalDivider
 import ekrem.ozan.satellites.base.extensions.observe
 import ekrem.ozan.satellites.base.extensions.runContextNotNull
 import ekrem.ozan.satellites.base.extensions.textChangeListener
@@ -70,14 +71,6 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list), 
     }
 
     private fun addItemDecorator() {
-        binding.satelliteList.apply {
-            runContextNotNull {
-                val divider = ContextCompat.getDrawable(it, R.drawable.divider)
-                val itemDecoration = DividerItemDecoration(it, DividerItemDecoration.VERTICAL)
-                val insetDivider = InsetDrawable(divider, 64, 16, 64, 16)
-                itemDecoration.setDrawable(insetDivider)
-                addItemDecoration(itemDecoration)
-            }
-        }
+        runContextNotNull { binding.satelliteList.addVerticalDivider(it, R.drawable.divider, 64,16,64,16) }
     }
 }
