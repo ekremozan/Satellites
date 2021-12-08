@@ -7,7 +7,6 @@ import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import ekrem.ozan.satellites.data.local.SatelliteDatabase
 import ekrem.ozan.satellites.data.local.dao.SatellitePositionDao
-import ekrem.ozan.satellites.data.local.models.SatelliteDetailItem
 import ekrem.ozan.satellites.data.local.models.SatellitePositionItem
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
