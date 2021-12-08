@@ -12,5 +12,7 @@ class Constants {
         const val SATELLITE_NAME = "satelliteName"
 
         const val MINUTE_COEFFICIENT = 1000
+        const val ITEM_DECORATOR_VERTICAL_MARGIN = 16
+        const val ITEM_DECORATOR_HORIZONTAL_MARGIN = 64
     }
 }

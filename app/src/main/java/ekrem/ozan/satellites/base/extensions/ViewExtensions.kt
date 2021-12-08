@@ -11,6 +11,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import ekrem.ozan.satellites.R
+import org.jetbrains.annotations.NotNull
 
 fun SearchView.textChangeListener(clickedBlock: (String?) -> Unit) {
     setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -25,7 +26,7 @@ fun SearchView.textChangeListener(clickedBlock: (String?) -> Unit) {
     })
 }
 
-fun RecyclerView.addVerticalDivider(context: Context, @DrawableRes item: Int, insetLeft: Int = 0, insetTop: Int = 0, insetRight: Int = 0, insetBottom: Int = 0){
+fun RecyclerView.addVerticalDivider(@NotNull context: Context, @DrawableRes item: Int, insetLeft: Int = 0, insetTop: Int = 0, insetRight: Int = 0, insetBottom: Int = 0){
     val divider = ContextCompat.getDrawable(context, item)
     val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
     val insetDivider = InsetDrawable(divider, insetLeft, insetTop, insetRight, insetBottom)

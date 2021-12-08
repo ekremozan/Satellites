@@ -10,7 +10,7 @@ import ekrem.ozan.satellites.domain.model.SatelliteData
 import ekrem.ozan.satellites.ui.list.adapter.viewholder.SatelliteViewHolder
 
 class SatelliteAdapter(
-    private val callback: SatelliteAdapterCallBack
+    private val onItemClickListener: (SatelliteData) -> Unit
 ) : ListAdapter<SatelliteData, SatelliteViewHolder>(
     AdapterItemDiffCallback()
 ) {
@@ -19,7 +19,7 @@ class SatelliteAdapter(
         val layoutInflater = LayoutInflater.from(parent.context)
         return SatelliteViewHolder(
             binding = ItemSatelliteBinding.inflate(layoutInflater, parent, false),
-            callback = callback
+            onItemClickListener = onItemClickListener
         )
     }
 

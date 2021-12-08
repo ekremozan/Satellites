@@ -8,14 +8,14 @@ import ekrem.ozan.satellites.ui.list.adapter.SatelliteAdapterCallBack
 
 class SatelliteViewHolder(
     private val binding: ItemSatelliteBinding,
-    private val callback: SatelliteAdapterCallBack
+    private val onItemClickListener: (SatelliteData) -> Unit
 ) : BaseViewHolder<SatelliteData>(binding.root) {
 
     override fun bind(data: SatelliteData) {
         binding.viewState = SatelliteViewState(data)
 
         binding.root.setOnClickListener {
-            callback.onItemClick(data)
+            onItemClickListener.invoke(data)
         }
     }
 }
