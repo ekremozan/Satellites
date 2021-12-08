@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ekrem.ozan.satellites.data.local.SatelliteDatabase
+import ekrem.ozan.satellites.util.Constants
 import javax.inject.Singleton
 
 @Module
@@ -20,7 +21,7 @@ class DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             SatelliteDatabase::class.java,
-            "SatelliteDatabase"
+            Constants.DATABASE_NAME
         ).build()
     }
 }

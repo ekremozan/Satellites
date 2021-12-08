@@ -2,6 +2,7 @@ package ekrem.ozan.satellites.util
 
 class Constants {
     companion object {
+        const val DATABASE_NAME = "SatelliteDatabase"
         const val EMPTY_STRING = ""
 
         const val SATELLITE_LIST_FILE_NAME = "raw/satellite-list.json"
