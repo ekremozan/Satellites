@@ -29,5 +29,11 @@ class JsonHelper {
                 return null
             }
         }
+
+
+       inline fun<reified T> fromJson(text: String): T{
+            val type: Type = object : TypeToken<T>() {}.type
+            return Gson().fromJson(text, type)
+        }
     }
 }

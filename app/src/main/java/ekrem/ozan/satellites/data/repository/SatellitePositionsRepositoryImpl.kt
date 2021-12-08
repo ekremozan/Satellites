@@ -38,8 +38,7 @@ class SatellitePositionsRepositoryImpl @Inject constructor(
     override fun getSatellitePositionsFromFile(context: Context, id: Int): Flow<PositionList> = flow {
         val jsonText = JsonHelper.parseJsonFile(context, Constants.SATELLITE_POSITION_FILE_NAME)
         jsonText?.let { text ->
-            val type: Type = object : TypeToken<SatellitePositionData>() {}.type
-            val response: SatellitePositionData = Gson().fromJson(text, type)
+            val response: SatellitePositionData =  JsonHelper.fromJson(text)
             emit(response.list.first { first -> first.id == id })
         }
     }

@@ -38,17 +38,13 @@ class SatelliteRepositoryImpl @Inject constructor(
 
     override fun getSatellites(context: Context): Flow<ArrayList<SatelliteData>> = flow {
         val jsonText = JsonHelper.parseJsonFile(context, Constants.SATELLITE_LIST_FILE_NAME)
-        jsonText?.let { text ->
-            val type: Type = object : TypeToken<ArrayList<SatelliteData>>() {}.type
-            emit(Gson().fromJson(text, type))
-        }
+        jsonText?.let { emit(JsonHelper.fromJson(it)) }
     }
 
     override fun getSatelliteDetailFromFile(context: Context, id: Int): Flow<SatelliteDetailData> = flow {
         val jsonText = JsonHelper.parseJsonFile(context, Constants.SATELLITE_DETAIL_FILE_NAME)
         jsonText?.let { text ->
-            val type: Type = object : TypeToken<ArrayList<SatelliteDetailFileData>>() {}.type
-            val response: ArrayList<SatelliteDetailFileData> = Gson().fromJson(text, type)
+            val response: ArrayList<SatelliteDetailFileData> = JsonHelper.fromJson(text)
             emit(satelliteDetailFromFileMapper.toMapUiModel(response.first { first -> first.id == id }))
         }
     }
