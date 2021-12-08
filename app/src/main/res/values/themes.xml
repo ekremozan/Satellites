@@ -16,10 +16,6 @@
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
-    <style name="TextViewStyle" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
     <style name="SearchViewStyle" parent="Widget.AppCompat.Light.SearchView">
         <item name="iconifiedByDefault">false</item>
         <item name="queryBackground">@android:color/transparent</item>

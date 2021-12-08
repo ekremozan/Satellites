@@ -1,7 +1,6 @@
 package ekrem.ozan.satellites.domain.repository
 
 import android.content.Context
-import ekrem.ozan.satellites.domain.model.PositionList
 import ekrem.ozan.satellites.domain.model.SatelliteData
 import ekrem.ozan.satellites.domain.model.SatelliteDetailData
 import kotlinx.coroutines.flow.Flow

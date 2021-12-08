@@ -12,6 +12,7 @@ import ekrem.ozan.satellites.domain.model.PositionList
 import ekrem.ozan.satellites.domain.model.SatelliteDetailData
 import ekrem.ozan.satellites.domain.usecase.*
 import ekrem.ozan.satellites.util.Constants
+import ekrem.ozan.satellites.util.Constants.Companion.EMPTY_STRING
 import ekrem.ozan.satellites.util.Constants.Companion.MINUTE_COEFFICIENT
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine
@@ -36,7 +37,7 @@ class DetailViewModel @Inject constructor(
     val uiStateLiveData: LiveData<DetailUIState> by lazy { _uiStateLiveData }
 
     var satelliteId: Int = 0
-    private var satelliteName: String = ""
+    private var satelliteName: String = EMPTY_STRING
 
     init {
         savedStateHandle.get<Int>(Constants.SATELLITE_ID)?.let { id -> this.satelliteId = id }
@@ -44,12 +45,14 @@ class DetailViewModel @Inject constructor(
     }
 
     fun getData(context: Context, id: Int) {
-        checkLocalSatelliteUseCase.invoke<Boolean>(satelliteId).onEach { isLocal ->
-            when (isLocal) {
-                true -> getSatelliteFromDB(id)
-                false -> getSatelliteFromFile(context, id)
-            }
-        }.launch()
+        checkLocalSatelliteUseCase.invoke<Boolean>(satelliteId)
+            .onStart { _uiStateLiveData.value = DetailUIState(true) }
+            .onEach { isLocal ->
+                when (isLocal) {
+                    true -> getSatelliteFromDB(id)
+                    false -> getSatelliteFromFile(context, id)
+                }
+            }.launch()
     }
 
     private fun getSatelliteFromDB(id: Int) {
@@ -58,8 +61,6 @@ class DetailViewModel @Inject constructor(
 
         satelliteReq.combine(satellitePositionsReq) { satellite, satellitePositions ->
             Pair(satellite, satellitePositions)
-        }.onStart {
-            _uiStateLiveData.value = DetailUIState(true)
         }.onEach { item ->
             changePositionInfo(item.first, item.second.positions)
         }.launch()

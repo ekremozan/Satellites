@@ -12,6 +12,7 @@ class CheckLocalSatelliteUseCase @Inject constructor(
     private val satelliteRepository: SatelliteRepository,
     private val satellitePositionsRepository: SatellitePositionsRepository
 ) : BaseUseCase<Int, Boolean>() {
+
     override fun execute(parameters: Int): Flow<Boolean> {
         return if (parameters == 0) flow { emit(false) } else {
             val satellite = satelliteRepository.getCheckSatelliteIsExist(parameters)

@@ -25,9 +25,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
     }
 
     private fun initStartRequest() {
-        runContextNotNull { context ->
-            viewModel.getData(context, viewModel.satelliteId)
-        }
+        runContextNotNull { context -> viewModel.getData(context, viewModel.satelliteId) }
     }
 
     private fun observeViewModelFields() {

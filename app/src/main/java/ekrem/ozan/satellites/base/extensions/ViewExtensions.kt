@@ -1,7 +1,6 @@
 package ekrem.ozan.satellites.base.extensions
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
 import android.view.View
 import androidx.annotation.DrawableRes
@@ -10,7 +9,6 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import ekrem.ozan.satellites.R
 import org.jetbrains.annotations.NotNull
 
 fun SearchView.textChangeListener(clickedBlock: (String?) -> Unit) {

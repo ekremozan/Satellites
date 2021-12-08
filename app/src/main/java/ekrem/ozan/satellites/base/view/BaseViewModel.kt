@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 
 abstract class BaseViewModel : ViewModel() {
-
     fun <T> Flow<T>.launch() {
         launchIn(viewModelScope)
     }

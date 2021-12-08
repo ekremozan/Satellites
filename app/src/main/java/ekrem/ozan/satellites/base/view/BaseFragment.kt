@@ -22,5 +22,4 @@ abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes private val layoutR
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
-
 }

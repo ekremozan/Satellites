@@ -1,8 +1,6 @@
 package ekrem.ozan.satellites.data.repository
 
 import android.content.Context
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import ekrem.ozan.satellites.data.local.dao.SatelliteDao
 import ekrem.ozan.satellites.data.mapper.SatelliteDetailDataToDetailItemMapper
 import ekrem.ozan.satellites.data.mapper.SatelliteDetailFromFileMapper
@@ -16,7 +14,6 @@ import ekrem.ozan.satellites.util.JsonHelper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
-import java.lang.reflect.Type
 import javax.inject.Inject
 
 class SatelliteRepositoryImpl @Inject constructor(
